@@ -4,4 +4,4 @@ A concept website for [Sneakerjunkie](https://www.facebook.com/profile.php?id=61
 
 Photos come from the shop's Facebook page; prices and sizes are placeholders for the demo.
 
-Concept & design: Luka Skhiladze
+Concept & design: LADZE studio
