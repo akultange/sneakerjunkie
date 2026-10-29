@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geo-georgian.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="src/admin.css?v=e857337a">
+<link rel="stylesheet" href="src/admin.css?v=17d33994">
 </head>
 <body class="is-locked">
 
@@ -58,6 +58,12 @@
       <div class="off-h"><h2 id="off-t" data-t="offTitle">დამალული</h2><span class="off-n" id="off-n"></span></div>
       <p class="off-hint" data-t="offHint"></p>
       <ul class="list" id="list-off"></ul>
+    </section>
+
+    <section class="shopinfo" id="shopinfo" aria-labelledby="si-t">
+      <div class="si-h"><h2 id="si-t" data-t="siTitle">მაღაზიის ინფორმაცია</h2><button type="button" class="btn ghost sm" id="si-edit" data-t="siEdit">შეცვლა</button></div>
+      <p class="si-sub" data-t="siSub"></p>
+      <ul class="si-list" id="si-list"></ul>
     </section>
 
     <p class="foot-note"><button type="button" class="link" id="discard" hidden></button></p>
@@ -113,9 +119,11 @@
         <label class="f"><span data-t="colorKa">ფერი</span><input id="f-color-ka" autocomplete="off" enterkeyhint="next"></label>
         <label class="f"><span data-t="colorEn">ფერი ინგლისურად</span><input id="f-color-en" autocomplete="off" lang="en" enterkeyhint="next"></label>
       </div>
-      <div class="row2">
-        <label class="f money"><span data-t="price">ფასი</span><input id="f-price" inputmode="numeric" pattern="[0-9]*" autocomplete="off"><i>₾</i></label>
-        <label class="f money"><span data-t="was">ძველი ფასი</span><input id="f-was" inputmode="numeric" pattern="[0-9]*" autocomplete="off" data-tp="wasPh" placeholder="ფასდაკლებისთვის"><i>₾</i></label>
+      <label class="f money"><span data-t="price">ფასი</span><input id="f-price" inputmode="numeric" pattern="[0-9]*" autocomplete="off"><i>₾</i></label>
+      <div class="disc" id="disc">
+        <div class="disc-h"><span data-t="discount">ფასდაკლება</span><span class="disc-out" id="disc-out" aria-live="polite"></span></div>
+        <div class="chips-row disc-chips" id="disc-chips" role="radiogroup"></div>
+        <label class="f money disc-own" id="disc-own" hidden><span data-t="salePrice">ფასდაკლებული ფასი</span><input id="f-sale" inputmode="numeric" pattern="[0-9]*" autocomplete="off"><i>₾</i></label>
       </div>
       <label class="f"><span data-t="descKa">აღწერა</span><textarea id="f-desc-ka" rows="3" data-tp="descPh" placeholder=""></textarea></label>
       <label class="f"><span data-t="descEn">აღწერა ინგლისურად</span><textarea id="f-desc-en" rows="3" lang="en" data-tp="descPhEn" placeholder=""></textarea></label>
@@ -170,6 +178,20 @@
   </div>
 </div>
 
+<div class="sheet" id="sale-sheet" role="dialog" aria-modal="true" aria-labelledby="ss-t" hidden>
+  <div class="sheet-card">
+    <button type="button" class="round sheet-x" data-close aria-label="დახურვა" data-tl="close"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/></svg></button>
+    <div id="ss-body"></div>
+  </div>
+</div>
+
+<div class="sheet" id="si-sheet" role="dialog" aria-modal="true" aria-labelledby="sis-t" hidden>
+  <div class="sheet-card">
+    <button type="button" class="round sheet-x" data-close aria-label="დახურვა" data-tl="close"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/></svg></button>
+    <div id="sis-body"></div>
+  </div>
+</div>
+
 <div class="confirm" id="ask" role="alertdialog" aria-modal="true" aria-labelledby="ask-t" hidden>
   <div class="confirm-card">
     <p id="ask-t"></p>
@@ -180,6 +202,6 @@
 <datalist id="brands"></datalist>
 <input type="file" id="file" class="vh" accept="image/*" multiple tabindex="-1" aria-hidden="true">
 <div id="toast" role="status" aria-live="polite"></div>
-<script type="module" src="src/admin.js?v=4c53f63d"></script>
+<script type="module" src="src/admin.js?v=df3ba749"></script>
 </body>
 </html>

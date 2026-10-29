@@ -19,34 +19,46 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geo-georgian.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="src/style.css?v=a25c15a0">
+<link rel="stylesheet" href="src/style.css?v=d92c0fd0">
 </head>
 <body class="is-loading">
 
 <canvas id="board" aria-hidden="true"></canvas>
 <div id="board-fallback" aria-hidden="true"><img id="ph" alt=""></div>
-<div id="photo-hit" aria-hidden="true"></div>
+<div id="shade" aria-hidden="true"></div>
 
-<section id="sheet" role="dialog" aria-labelledby="sh-model" aria-hidden="true">
-  <div class="sh-stk" aria-hidden="true"></div>
-  <div class="sh-in">
-    <div class="sh-head">
-      <p class="sh-brand" id="sh-brand"></p>
-      <h2 class="sh-model" id="sh-model"></h2>
-      <p class="sh-color" id="sh-color"></p>
+<section id="pdp" aria-hidden="true" aria-labelledby="sh-model">
+  <div class="pdp-cover" id="pdp-cover"><button type="button" class="cover-hint" id="cover-hint" tabindex="-1"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="cover-hint-t"></span></button></div>
+  <article class="ticket" id="sheet">
+    <div class="sh-stk" aria-hidden="true"></div>
+    <div class="sh-scroll" id="sh-scroll">
+      <div class="sh-in" id="sh-in">
+        <div class="sh-head">
+          <p class="sh-brand" id="sh-brand"></p>
+          <h2 class="sh-model" id="sh-model"></h2>
+          <p class="sh-color" id="sh-color"></p>
+        </div>
+        <div class="sh-price" id="sh-price"></div>
+        <div class="sh-sizes-h"><span><span data-t="size">ზომა</span> <span class="sh-eu">EU</span></span><button type="button" class="sh-guide" id="sh-guide"><span data-t="guide">ზომების ცხრილი</span> →</button></div>
+        <div class="sh-sizes" id="sh-sizes" role="radiogroup" aria-labelledby="sh-model"></div>
+        <a class="sh-order" id="sh-order" href="https://m.me/61578929663578" target="_blank" rel="noopener">
+          <span class="o-ic" aria-hidden="true"><svg viewBox="0 0 40 64" width="13" height="21" aria-hidden="true"><path d="M24 2 4 36h14l-6 26 24-38H22z" fill="currentColor"/></svg></span>
+          <span class="o-txt"><span class="o-main" id="o-main">შეუკვეთე Messenger-ში</span><span class="o-sub" id="o-sub"></span></span>
+          <svg class="o-go" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <button type="button" class="sh-note" id="sh-note" aria-controls="accp-delivery"><span aria-hidden="true">🚤</span> <span id="sh-note-t">მიწოდება საქართველოს ნებისმიერ წერტილში ელვის ⚡ სისწრაფით</span></button>
+      </div>
+      <div class="acc" id="sh-acc"></div>
     </div>
-    <div class="sh-price" id="sh-price"></div>
-    <p class="sh-desc" id="sh-desc" hidden></p>
-    <div class="sh-sizes-h"><span data-t="size">ზომა</span><span class="sh-eu">EU</span></div>
-    <div class="sh-sizes" id="sh-sizes" role="radiogroup" aria-labelledby="sh-model"></div>
-    <div class="sh-cta">
-      <button class="sh-nav" id="sh-prev" type="button" aria-label="წინა" data-tl="prev"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <a class="sh-order" id="sh-order" href="https://m.me/61578929663578" target="_blank" rel="noopener"><span class="o-main" data-t="order">შეუკვეთე</span><span class="o-sub" data-t="orderSub">Messenger-ში</span><svg viewBox="0 0 40 64" width="16" height="25" aria-hidden="true"><path d="M24 2 4 36h14l-6 26 24-38H22z" fill="currentColor"/></svg></a>
-      <button class="sh-nav pink" id="sh-next" type="button" aria-label="შემდეგი" data-tl="next"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-    </div>
-    <p class="sh-note"><span aria-hidden="true">🚤</span> <span data-t="delivery">მიწოდება საქართველოს ნებისმიერ წერტილში ელვის ⚡ სისწრაფით</span></p>
-  </div>
+  </article>
+  <div class="pdp-photos" id="pdp-photos"></div>
+  <div class="pdp-end" id="pdp-end"></div>
 </section>
+
+<div class="buybar" id="buybar" aria-hidden="true">
+  <div class="bb-meta"><b id="bb-model"></b><span id="bb-price"></span></div>
+  <a class="bb-order" id="bb-order" href="https://m.me/61578929663578" target="_blank" rel="noopener" tabindex="-1"><span id="bb-label"></span><svg viewBox="0 0 40 64" width="13" height="21" aria-hidden="true"><path d="M24 2 4 36h14l-6 26 24-38H22z" fill="currentColor"/></svg></a>
+</div>
 
 <canvas id="pile" role="img" aria-label="Sneakerjunkie — სნიკერების გროვა"></canvas>
 
@@ -57,11 +69,15 @@
 <header class="hdr">
   <button class="logo" id="logo" type="button" aria-label="Sneakerjunkie"><img src="assets/brand/junkie-badge.svg" alt="" width="48" height="48"></button>
   <span class="name" id="name">SNEAKERJUNKIE</span>
-  <span class="count" id="count" aria-live="polite"></span>
+  <div class="pager" id="pager">
+    <button class="pg" id="pg-prev" type="button" aria-label="წინა" data-tl="prev"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <span class="pg-n" id="count" aria-live="polite"></span>
+    <button class="pg" id="pg-next" type="button" aria-label="შემდეგი" data-tl="next"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
   <span class="sp"></span>
-  <button class="round snd" id="snd" type="button" aria-pressed="false" aria-label="ხმა" data-tl="sound"><span class="eqi" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+  <button class="round snd" id="snd" type="button" aria-pressed="false" aria-label="ხმა" data-tl="sound"><svg viewBox="0 0 24 24" width="21" height="21" aria-hidden="true"><path d="M3.5 9.2h3.4L11.6 5v14l-4.7-4.2H3.5z" fill="currentColor"/><path class="w" d="M15 9.2a4 4 0 0 1 0 5.6M17.8 6.6a7.8 7.8 0 0 1 0 10.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path class="x" d="M15.6 9.6l4.8 4.8M20.4 9.6l-4.8 4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
   <button class="pill" id="lang" type="button" lang="en">ENG</button>
-  <button class="round" id="info" type="button" aria-label="ჩვენ შესახებ" data-tl="about"><span aria-hidden="true">?</span></button>
+  <button class="round" id="info" type="button" aria-label="ჩვენ შესახებ" data-tl="about"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9.2 9.3a2.9 2.9 0 1 1 4 2.7c-.8.4-1.2 1-1.2 1.8v.6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><circle cx="12" cy="17.6" r="1.6" fill="currentColor"/></svg></button>
   <button class="round" id="close" type="button" aria-label="დახურვა" data-tl="close"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/></svg></button>
 </header>
 
@@ -75,7 +91,6 @@
   </div>
 </nav>
 
-<div id="thumbs"></div>
 <div id="peek" aria-hidden="true"></div>
 <div id="hint" aria-hidden="true"></div>
 <div id="toast" role="status" aria-live="polite"></div>
@@ -107,19 +122,12 @@
 <div id="loader">
   <img src="assets/brand/junkie-badge.svg" alt="" width="112" height="112">
   <div class="ld-bar" aria-hidden="true"><i></i></div>
-  <div class="gate" id="gate">
-    <p class="gate-name">SNEAKERJUNKIE</p>
-    <button class="btn lemon gate-on" id="enter-on" type="button"><span class="eqi" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-t="enterOn">შემოდი ხმით</span></button>
-    <button class="gate-off" id="enter-off" type="button" data-t="enterOff">უხმოდ</button>
-    <p class="gate-cap"><span aria-hidden="true">🎧</span> <span data-t="enterCap">ხმით ბევრად მაგარია</span></p>
-  </div>
-  <button class="pill ld-lang" id="ld-lang" type="button" lang="en">ENG</button>
 </div>
 
 <i class="tint" id="tint-top" aria-hidden="true"></i>
 <i class="tint" id="tint-bot" aria-hidden="true"></i>
 
 <noscript><p class="nojs">Sneakerjunkie — <a href="https://www.facebook.com/profile.php?id=61578929663578">Facebook</a></p></noscript>
-<script type="module" src="src/app.js?v=eaa9d2dc"></script>
+<script type="module" src="src/app.js?v=ceca86e4"></script>
 </body>
 </html>
