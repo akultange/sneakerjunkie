@@ -6,7 +6,7 @@
 <title>SNEAKERJUNKIE</title>
 <meta name="description" content="Sneakerjunkie — ამ მაღაზიაში ნელ-ნელა ყველაფერს შეხვდები. მიწოდება საქართველოს ნებისმიერ წერტილში ელვის სისწრაფით.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#63a1f7">
+<meta name="theme-color" content="#1a1530">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://akultange.github.io/sneakerjunkie/">
 <meta property="og:title" content="SNEAKERJUNKIE">
@@ -59,6 +59,7 @@
   <span class="name" id="name">SNEAKERJUNKIE</span>
   <span class="count" id="count" aria-live="polite"></span>
   <span class="sp"></span>
+  <button class="round snd" id="snd" type="button" aria-pressed="false" aria-label="ხმა" data-tl="sound"><span class="eqi" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
   <button class="pill" id="lang" type="button" lang="en">ENG</button>
   <button class="round" id="info" type="button" aria-label="ჩვენ შესახებ" data-tl="about"><span aria-hidden="true">?</span></button>
   <button class="round" id="close" type="button" aria-label="დახურვა" data-tl="close"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/></svg></button>
@@ -101,10 +102,20 @@
 
 <nav class="sr-only" id="list" aria-label="წყვილები"></nav>
 
-<div id="loader" aria-hidden="true">
+<div id="loader">
   <img src="assets/brand/junkie-badge.svg" alt="" width="112" height="112">
-  <div class="ld-bar"><i></i></div>
+  <div class="ld-bar" aria-hidden="true"><i></i></div>
+  <div class="gate" id="gate">
+    <p class="gate-name">SNEAKERJUNKIE</p>
+    <button class="btn lemon gate-on" id="enter-on" type="button"><span class="eqi" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-t="enterOn">შემოდი ხმით</span></button>
+    <button class="gate-off" id="enter-off" type="button" data-t="enterOff">უხმოდ</button>
+    <p class="gate-cap"><span aria-hidden="true">🎧</span> <span data-t="enterCap">ხმით ბევრად მაგარია</span></p>
+  </div>
+  <button class="pill ld-lang" id="ld-lang" type="button" lang="en">ENG</button>
 </div>
+
+<i class="tint" id="tint-top" aria-hidden="true"></i>
+<i class="tint" id="tint-bot" aria-hidden="true"></i>
 
 <noscript><p class="nojs">Sneakerjunkie — <a href="https://www.facebook.com/profile.php?id=61578929663578">Facebook</a></p></noscript>
 <script type="module" src="src/app.js"></script>
